@@ -54,8 +54,8 @@ TransferAsset(ctx, id, nuevoPropietario)
 
 ## Directorio de trabajo
 
-- En `~/hyperledger-fabric/practica-miax/` se proporciona el paquete NodeJS preparado para implementar chaincode.
-- En `~/hyperledger-fabric/practica-miax/src/coches.js` se proporciona el esqueleto del chaincode a implementar.
+- En `~/MIAX/hyperledger-fabric/practica-miax/` se proporciona el paquete NodeJS preparado para implementar chaincode.
+- En `~/MIAX/hyperledger-fabric/practica-miax/src/coches.js` se proporciona el esqueleto del chaincode a implementar.
 
 ## Hyperledger Fabric SDK
 
@@ -100,7 +100,7 @@ Documentación:
 1. Cambio de directorio a test-network
 
 ```sh
-cd ~/hyperledger-fabric/fabric-samples/test-network
+cd ~/MIAX/hyperledger-fabric/fabric-samples/test-network
 ```
 
 2. Desplegar red de pruebas
@@ -126,7 +126,7 @@ Recordamos qué hace cada parámetro del comando con la ayuda:
 1. Desde el directorio de test-network
 
 ```sh
-cd ~/hyperledger-fabric-beta/fabric-samples/test-network
+cd ~/MIAX/hyperledger-fabric-beta/fabric-samples/test-network
 ```
 
 
