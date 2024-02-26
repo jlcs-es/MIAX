@@ -117,7 +117,7 @@ cd ~/MIAX/hyperledger-fabric/fabric-samples/test-network
 
 Recordamos qué hace cada parámetro del comando con la ayuda:
 
-```
+```sh
 ./network.sh -h
 ```
 
@@ -150,7 +150,7 @@ peer chaincode invoke "${TARGET_TLS_OPTIONS[@]}" -C mychannel -n coches -c '{"fu
 4. Invocar una query para obtener información sin generar nuevas transacciones
 
 ```bash
-peer chaincode query -C mychannel -n coches -c '{"function":"ReadAsset","Args":["Asset1"]}'
+peer chaincode query -C mychannel -n coches -c '{"function":"ReadAsset","Args":["Asset1"]}' | jq
 ```
 
 
