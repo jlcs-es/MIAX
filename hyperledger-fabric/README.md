@@ -2,6 +2,7 @@
 
 ## Instalar Fabric 2.5
 
+- Node 18 LTS
 - [Prerequisites](https://hyperledger-fabric.readthedocs.io/en/release-2.5/prereqs.html) ya incluidos en la máquina virtual
 - [Install script](https://hyperledger-fabric.readthedocs.io/en/release-2.5/install.html) ya incluidos en la máquina virtual
 
