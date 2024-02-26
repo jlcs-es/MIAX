@@ -18,7 +18,7 @@ $ ./install-fabric.sh docker samples binary --fabric-version 2.5.6
 1. Cambio de directorio a test-network
 
 ```sh
-cd ~/hyperledger-fabric/fabric-samples/test-network
+cd ~/MIAX/hyperledger-fabric/fabric-samples/test-network
 ```
 
 2. Desplegar red de pruebas
