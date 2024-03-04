@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MetaCoin | Truffle Webpack Demo w/ Frontend</title>
+  </head>
+  <style>
+    input {
+      display: block;
+      margin-bottom: 12px;
+    }
+  </style>
+  <body>
+    <h1>MetaCoin — Example Truffle Dapp</h1>
+    
+    <p>Tu cuenta: <strong class="cuenta">loading...</strong></p>
+    <p>Tu role: <strong class="role">loading...</strong></p>
+    <div style="background-color: lightblue; border-top: 1px solid; padding: 10px">
+      <h2>Banco</h2>
+      <p>Dirección contrato: <strong class="banco-contract-address">loading...</strong></p>
+      <div id="banco-user">
+        <p>Tu saldo: <strong class="banco-balance-user">loading...</strong> céntimos</p>
+      </div>
+      <div id="banco-admin" style="background-color: lightgray; margin: 20px; padding: 10px">
+        <h3>Administración</h3>
+        <p>Saldo total: <strong class="banco-balance-total">loading...</strong> céntimos</p>
+        <table>
+          <tr>
+            <td style="padding-right: 30px">
+              <h4>Hacer depósito</h4>
+              <label for="banco-deposito-cantidad">Cantidad (en céntimos):</label>
+              <input type="text" id="banco-deposito-cantidad" value="1000000" />
+              <label for="banco-deposito-destinatario">A (address):</label>
+              <input
+                type="text"
+                id="banco-deposito-destinatario"
+                value="0xE9936ABF6C969EDd8774a2Ce0Cc8873E3caAEdCD"
+              />
+              <button onclick="App.bancoDeposito()">Depositar</button>
+            </td>
+            <td>
+              <h4>Hacer retirada</h4>
+              <label for="banco-retirada-cantidad">Cantidad (en céntimos):</label>
+              <input type="text" id="banco-retirada-cantidad" value="100000" />
+              <label for="banco-retirada-destinatario">De (address):</label>
+              <input
+                type="text"
+                id="banco-retirada-destinatario"
+                value="0xE9936ABF6C969EDd8774a2Ce0Cc8873E3caAEdCD"
+              />
+              <button onclick="App.bancoRetirada()">Retirar</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div style="background-color: lightyellow; border-top: 1px solid; padding: 10px">
+      <h2>Registro Tráfico</h2>
+      <p>Dirección contrato: <strong class="trafico-contract-address">loading...</strong></p>
+      <div id="trafico-user">
+        <p>Tus vehículos: <strong class="trafico-vehiculos-user">loading...</strong> </p>
+      </div>
+      <div id="trafico-admin" style="background-color: lightgray; margin: 20px; padding: 10px">
+        <h3>Administración</h3>
+        <p>Lista de vehículos registrados: <strong class="trafico-vehiculos-admin">loading...</strong> </p>
+        <h4>Registrar nuevo vehículo</h4>
+        <label for="trafico-registro-puertas">Número de puertas:</label>
+        <input type="text" id="trafico-registro-puertas" value="5" />
+        <label for="trafico-registro-gasolina">¿Es gasolina?:</label>
+        <input type="text" id="trafico-registro-gasolina" value="true" />
+        <label for="trafico-registro-matricula">Matrícula:</label>
+        <input type="text" id="trafico-registro-matricula" value="6578LMG" />
+        <label for="trafico-registro-tipo">Tipo (0, 1, 2):</label>
+        <input type="text" id="trafico-registro-tipo" value="1" />
+        <label for="trafico-registro-modelo">Modelo:</label>
+        <input type="text" id="trafico-registro-modelo" value="Peugeot 207" />
+        <label for="trafico-registro-propietario">Propietario (address):</label>
+        <input
+          type="text"
+          id="trafico-registro-propietario"
+          value="0xF87523A07Fc6d01dcE61349303641de156d39bf7"
+        />
+        <button onclick="App.traficoRegistroNuevoVehiculo()">Registrar</button>
+      </div>
+    </div>
+    <div style="background-color: lightgreen; border-top: 1px solid; padding: 10px">
+      <h2>Concesionario</h2>
+      <p>Dirección contrato: <strong class="concesionario-contract-address">loading...</strong></p>
+      <div id="concesionario-user">
+          <p>Lista anuncios: <strong class="concesionario-anuncios">loading...</strong> </p>
+          <h4>Publicar anuncio de venta:</h4>
+          <label for="concesionario-publicar-precio">Precio de venta (en céntimos):</label>
+          <input type="text" id="concesionario-publicar-precio" value="100000" />
+          <label for="concesionario-publicar-matricula">Matricula:</label>
+          <input type="text" id="concesionario-publicar-matricula" value="6578LMG" />
+          <button onclick="App.concesionarioPublicarAnuncioVehiculo()">Publicar</button>
+      </div>
+      <div id="concesionario-admin"></div>
+    </div>
+    <p id="status"></p>
+    <p>
+      <strong>Hint:</strong> open the browser developer console to view any
+      errors and warnings.
+    </p>
+    <script src="index.js"></script>
+  </body>
+</html>
