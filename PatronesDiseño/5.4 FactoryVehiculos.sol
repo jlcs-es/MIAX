@@ -46,6 +46,24 @@ contract Vehiculo {
     }
 }
 
+contract RegistroVehilucos {
+    event VehiculoRegistrado(string matricula, address vehiculo, uint256 index);
+
+    mapping(string => Vehiculo) registro;
+    uint256 contador;
+
+    function anadirVehiculo(uint8 numPuertas_, bool esGasolina_, address propietario_, Vehiculo.TipoVehiculo tipo_, string memory matricula_, string memory modelo_) public {
+        Vehiculo v = new Vehiculo(numPuertas_, esGasolina_, propietario_, tipo_, matricula_, modelo_);
+        registro[v.matricula()] = v;
+        contador += 1;
+        emit VehiculoRegistrado(v.matricula(), address(v), contador);
+    }
+
+    function getVehiculo(string memory matricula) public view returns (Vehiculo) {
+        return registro[matricula];
+    }
+}
+
 contract RegistroVehiculos2 {
     event VehiculoRegistrado(string matricula, address vehiculo, uint256 total);
 
