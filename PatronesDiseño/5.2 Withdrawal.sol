@@ -17,7 +17,7 @@ contract Auction {
     function bid() public payable {
         if (msg.value <= mostSent) revert NotEnoughEther();
         // This line can cause problems (explained below).
-        winner.transfer(msg.value);
+        winner.transfer(mostSent);
         winner = payable(msg.sender);
         mostSent = msg.value;
     }
@@ -39,7 +39,7 @@ contract AuctionWithdrawal {
 
     function bid() public payable {
         if (msg.value <= mostSent) revert NotEnoughEther();
-        pendingWithdrawals[winner] += msg.value;
+        pendingWithdrawals[winner] += mostSent;
         winner = payable(msg.sender);
         mostSent = msg.value;
     }
