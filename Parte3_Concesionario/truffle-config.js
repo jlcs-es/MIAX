@@ -49,7 +49,9 @@ module.exports = {
     // },
     
     develop: {
-      port: 8545
+      host: "localhost",
+      port: 8545,
+      network_id: "*"
     },
 
     // Another network with more advanced options...
