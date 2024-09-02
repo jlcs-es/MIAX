@@ -1,8 +1,10 @@
 import Web3 from "web3";
-import bancoArtifact from "../../build/contracts/EuroTokenizado.json";
-import registroTraficoArtifact from "../../build/contracts/RegistroTrafico.json";
-import concesionarioArtifact from "../../build/contracts/Concesionario.json";
-import vehiculoMetadataArtifact from "../../build/contracts/VehiculoMetadata.json";
+import bancoArtifact from "../../artifacts/contracts/EuroTokenizado.sol/EuroTokenizado.json";
+import registroTraficoArtifact from "../../artifacts/contracts/RegistroTrafico.sol/RegistroTrafico.json";
+import concesionarioArtifact from "../../artifacts/contracts/Concesionario.sol/Concesionario.json";
+import vehiculoMetadataArtifact from "../../artifacts/contracts/VehiculoMetadata.sol/VehiculoMetadata.json";
+
+import deployedAddresses from "../../ignition/deployments/chain-31337/deployed_addresses.json";
 
 const App = {
   web3: null,
@@ -20,18 +22,17 @@ const App = {
 
     try {
       // get contract instance
-      const networkId = await web3.eth.net.getId();
       this.banco = new web3.eth.Contract(
         bancoArtifact.abi,
-        bancoArtifact.networks[networkId].address,
+        deployedAddresses["ConcesionarioModule#EuroTokenizado"],
       );
       this.trafico = new web3.eth.Contract(
         registroTraficoArtifact.abi,
-        registroTraficoArtifact.networks[networkId].address,
+        deployedAddresses["ConcesionarioModule#RegistroTrafico"],
       );
       this.concesionario = new web3.eth.Contract(
         concesionarioArtifact.abi,
-        concesionarioArtifact.networks[networkId].address,
+        deployedAddresses["ConcesionarioModule#Concesionario"],
       );
 
       // get accounts
@@ -54,7 +55,7 @@ const App = {
       })
 
     } catch (error) {
-      console.error("Could not connect to contract or chain.");
+      console.error("Could not connect to contract or chain.", error);
     }
   },
   setStatus: function (message) {
@@ -68,19 +69,19 @@ const App = {
     const role = document.getElementsByClassName("role")[0];
     // ghost truck husband dwarf sick bracket first enact script urban strong cement
     switch (this.account) {
-      case '0x0293277eF9b9522Df577c5C97E8239414Ba027B5':
+      case '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266':
         role.innerHTML = "Admin Banco";
         break;
-      case '0x8B1E6E14C4c1CaBFB96748e60CEE3Bb8D22b2891':
+      case '0x70997970C51812dc3A010C7d01b50e0d17dc79C8':
         role.innerHTML = "Admin Registro Tráfico";
         break;
-      case '0xefcE8030F98449eA9856f5D85797Cfd08e65Fc70':
+      case '0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC':
         role.innerHTML = "Admin Concesionario";
         break;
-      case '0xF87523A07Fc6d01dcE61349303641de156d39bf7':
+      case '0x90F79bf6EB2c4f870365E785982E1f101E93b906':
         role.innerHTML = "Usuario Vendedor";
         break;
-      case '0xE9936ABF6C969EDd8774a2Ce0Cc8873E3caAEdCD':
+      case '0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65':
         role.innerHTML = "Usuario Comprador";
         break;
     }
@@ -203,7 +204,7 @@ const App = {
     const esGasolina = document.getElementById("trafico-registro-gasolina").value == 'true';
     const tipo = parseInt(document.getElementById("trafico-registro-tipo").value);
     const modelo = document.getElementById("trafico-registro-modelo").value;
-    const matricula = web3.utils.utf8ToHex(document.getElementById("trafico-registro-matricula").value);
+    const matricula = web3.utils.fromAscii(document.getElementById("trafico-registro-matricula").value).padEnd(66, '0');
 
     this.setStatus("Iniciando transacción...(espere)");
     const {
@@ -264,7 +265,7 @@ const App = {
       web3
     } = this;
     const precio = parseInt(document.getElementById("concesionario-publicar-precio").value);
-    const matricula = web3.utils.utf8ToHex(document.getElementById("concesionario-publicar-matricula").value);
+    const matricula = web3.utils.utf8ToHex(document.getElementById("concesionario-publicar-matricula").value).padEnd(66, '0');
 
     this.setStatus("Iniciando transacción...(espere)");
     const {
