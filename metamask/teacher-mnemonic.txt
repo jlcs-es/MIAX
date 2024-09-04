@@ -1,6 +1,0 @@
-hurry village saddle desert noble allow fault damp make camera visual voyage
-
-browser extension password: password
-
-ganache --wallet.mnemonic "hurry village saddle desert noble allow fault damp make camera visual voyage"
-

@@ -12,23 +12,4 @@ import "./Utils/Ownable.sol";
 */
 contract EuroTokenizado is ERC20, Ownable {
 
-    /**
-    * @dev Constructor por defecto que inicializa el nombre, simbolo y decimales
-    */
-    constructor() ERC20("Euro tokenizado", "EUR", 2) {
-    }
-
-    /**
-     * @dev Funcion para acuñar euros en una cuenta. Solo el dueño puede realizar esta acción.
-     */
-    function acunyar(address account_, uint256 amount_) public onlyOwner {
-        _mint(account_, amount_);
-    }
-
-    /**
-     * @dev Funcion para retirar euros de una cuenta. Solo el dueño puede realizar esta acción.
-     */
-    function destruir(address account_, uint256 amount_) public onlyOwner {
-        _burn(account_, amount_);
-    }
 }
