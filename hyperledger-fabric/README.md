@@ -9,7 +9,7 @@
 ```bash
 $ curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh
 
-$ ./install-fabric.sh docker samples binary --fabric-version 2.5.6
+$ ./install-fabric.sh docker samples binary --fabric-version 2.5.9
 ```
 
 ## Comprobar instalación
