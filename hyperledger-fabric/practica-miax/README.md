@@ -28,16 +28,16 @@ El recurso que representa un activo:
 
 ```json
 {
-    color: string,
-    itv: string,
-    marca: string,
-    matriculacion: {
-        matricula: string,
-        pais: string,
-        year: string
+    "color": "string",
+    "itv": "string",
+    "marca": "string",
+    "matriculacion": {
+        "matricula": "string",
+        "pais": "string",
+        "year": "string"
     },
-    modelo: string,
-    propietario: string
+    "modelo": "string",
+    "propietario": "string"
 }
 ```
 
