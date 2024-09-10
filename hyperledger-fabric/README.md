@@ -12,6 +12,14 @@ $ curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/i
 $ ./install-fabric.sh docker samples binary --fabric-version 2.5.9
 ```
 
+Ya incluida en la MV:
+
+```bash
+export FABRIC_CFG_PATH="/home/user/MIAX/hyperledger-fabric/fabric-samples/config"
+export PATH="${PATH}:/home/user/MIAX/hyperledger-fabric/fabric-samples/bin"
+```
+
+
 ## Comprobar instalación
 
 
